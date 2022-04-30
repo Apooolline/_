@@ -1,0 +1,43 @@
+body {
+  background-color: #2f3136;
+  margin: 0px;
+}
+
+#timeline {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.grand, .moyen, .petit {
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #52555b;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.grand {
+  height: 75%;
+  width: 20%;
+}
+
+.moyen {
+  height: 65%;
+  width: 15%;
+}
+
+.petit {
+  height: 55%;
+  width: 10%;
+}
+
+/* 
+#735eb5 
+#2f3136
+*/
