@@ -3,16 +3,73 @@
 
 <head>
   <meta charset="utf-8" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body onload='load( getCurrentDayIndex() )'>
-  <div id='timeline'>
-
+<body onload='timeline.preload()'>
+  <script type="text/javascript" src="libs/functions.js"></script>
+  <script type="text/javascript" src="libs/journey.js"></script>
+  <script type="text/javascript" src="libs/timeline.js"></script>
+  <script type="text/javascript" src="libs/humors.js"></script>
+  
+  <div id="a_droite_haut">
+    <button  id="boutondumenu" onclick="openpopup()">Menu</button>
   </div>
-  <script src="script.js"></script>
+  
+  <div id='popup'>
+    <button id="close_button" onclick="closepopup()">Close</button> 
+  </div>
+
+  <h1>Ma vie</h1>
+  
+  <div id="timeline-wrapper">
+    <div id="timeline-mask">
+      <div id="timeline">
+        <div class="petit" id="day--1">
+          <p class="date" id="date--1"></p>
+          <p class="rel-date" id="reldate--1">Avant-hier</p>
+          <p class="humor" id="humor--1">nope</p>
+          <p class="content" id='content--1'></p>
+        </div><div class="moyen" id="day--2">
+          <p class="date" id="date--2"></p>
+          <p class="rel-date" id="reldate--2">Hier</p>
+          <p class="humor" id="humor--2">nope</p>
+          <p class="content" id='content--2'></p>
+        </div><div class="grand" id="day--3">
+          <p class="date" id="date--3"></p>
+          <p class="rel-date" id="reldate--3">Aujourd'hui</p>
+          <p class="humor" id="humor--3">Comment allez-vous ? ;3</p>
+          <p class="content" id='content--3' style='display: none'></p>
+          <textarea id='input-day'></textarea>
+        </div><div class="moyen" id="day--4">
+          <p class="date" id="date--4"></p>
+          <p class="rel-date" id="reldate--4">Demain</p>
+          <p class="humor" id="humor--4">Vous verrez bien !</p>
+          <p class="content" id='content--4'></p>
+        </div><div class="petit" id="day--5">
+          <p class="date" id="date--5"></p>
+          <p class="rel-date" id="reldate--5">Après-demain</p>
+          <p class="humor" id="humor--5">Tu verras mon reuf</p>
+          <p class="content" id='content--5'></p>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+  <div id='container'>
+    <div class='column' id='coll'>
+      <h2>Statistiques</h2>
+    </div>
+    <div class='column' id='colr'>
+      <h2>Vos Humeurs</h2>
+      <ul id='humeurs'>
+      </ul>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>

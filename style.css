@@ -1,16 +1,71 @@
+/**************************************{ RULES }**************************************/
+
+@media screen and (max-width: 1000px) {
+  .column {
+    width: 100% !important;
+    margin: 15px 0px 0px 0px;
+  }
+}
+@font-face {
+  font-family: 'Bree';
+  src: url('fonts/Bree.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'CreamCake';
+  src: url('fonts/creamcake.otf');
+  font-weight: 100;
+}
+
 body {
-  background-color: #2f3136;
+  background-color: var(--background);
   margin: 0px;
+  font-family: "Bree";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+/**************************************{ VARS }**************************************/
+
+:root {
+  --main-color: #efb5a3;
+  --main-bgcolor: #f57e7e;
+  --background: #315f72;
+  --menu-background: hsl(56, 53%, 81%, 0.9);
+}
+
+/**************************************{ BODY }**************************************/
+
+#timeline-wrapper {
+  width: 100%;
+  height: 277px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--main-bgcolor);
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 #timeline {
-  width: 100%;
+  display: inline-block;
+  margin: auto;
+  width: 90%;
   height: 200px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: white;
-  padding-top: 15px;
-  padding-bottom: 15px;
+}
+
+#timeline-mask {
+  position: relative;
+  width: 100%;
+  height: 277px;
+  -webkit-mask-image: linear-gradient(to right, transparent, var(--main-bgcolor), transparent);
+  z-index: auto;
 }
 
 .grand, .moyen, .petit {
@@ -18,27 +73,185 @@ body {
   vertical-align: middle;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #52555b;
+  background-color: var(--main-color);
   border-radius: 10px;
   display: inline-block;
 }
 
 .grand {
-  height: 75%;
-  width: 20%;
+  height: 119%;
+  width: 25%;
+  min-width: 180px;
 }
 
 .moyen {
-  height: 65%;
-  width: 15%;
+  height: 103%;
+  width: 20%;
+  min-width: 142px;
 }
 
 .petit {
-  height: 55%;
-  width: 10%;
+  height: 90%;
+  min-width: 120px;
+  width: 15%;
 }
 
-/* 
-#735eb5 
-#2f3136
-*/
+.date {
+  margin: 0px;
+  font-size: 12px;
+  color: #595959;
+}
+
+.rel-date {
+  margin: 5px;
+  font-size: 20px;
+}
+
+#input-day {
+  margin-top: 10px;
+  resize: none;
+  width: 90%;
+  background: var(--main-bgcolor);
+  color: white;
+  height: 58%;
+  font-family: "Bree";
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.humor {
+  margin: 0px;
+}
+
+.content {
+  padding: 0px 10px 5px 10px;
+  margin-top: 5px;
+  text-overflow: clip;
+}
+
+.moyen .content {
+  font-size: 12px;
+}
+
+.petit .content {
+  font-size: 9px;
+}
+
+.grand .content {
+  font-size: 15px;
+}
+
+/**************************************{ MENU }**************************************/
+
+#boutondumenu {
+  margin: 5px;
+  font-family: 'CreamCake';
+  color: #080a0c;
+  background: var(--main-bgcolor);
+  background-image: linear-gradient(180deg, var(--background) 100%, var(--background));
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  background-position: 100% 205%;
+  background-size: 100% 0px;
+  transition: background-size 0.25s ease-in;
+}
+
+#boutondumenu:hover {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: background-size 0.25s ease-out !important;
+}
+
+#close_button {
+  font-family: 'CreamCake';
+  color: #080a0c;
+  background: var(--main-bgcolor);
+  background-color: #315f72;
+  border: none;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+}
+
+#a_droite_haut {
+  position: fixed;
+  top: 15px;
+  right: 5px;
+}
+
+h1 {
+  margin: 10px;
+  margin-top: 0px;
+  text-align: center;
+  color: #0f0f0f;
+  font-family: "CreamCake";
+  font-size: 80px;
+}
+
+.popup {
+  margin: 0px;
+  display: none;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  margin: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  width: 1250px;
+  height: 550px;
+  border-radius: 15px;
+  background: var(--menu-background);
+}
+
+/**************************************{ PAGE }**************************************/
+
+#container {
+  width: 100%;
+}
+
+#coll {
+  width: 70%;
+}
+
+#colr {
+  width: 27%;
+}
+
+#container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  background: var(--main-bgcolor);
+  border-radius: 5px;
+  height: 47vh;
+  min-height: calc(fit-content + 20px);
+  margin: 15px 0px 0px 15px;
+  padding: 15px;
+}
+
+h2 {
+  margin: 0px;
+  font-weight: bold; 
+}
