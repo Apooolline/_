@@ -2,50 +2,96 @@
 
 @media screen and (max-width: 1000px) {
   .column {
-    width: 100% !important;
+    width: calc(100% - 32px) !important;
     margin: 15px 0px 0px 0px;
   }
+
+  .petit {
+    display: none !important;
+  }
+
+  .grand {
+    width: 85% !important;
+  }
+
+  .moyen {
+    width: 20px !important;
+  }
+
+  .grand .content {
+    padding: 0px 25px 5px 25px !important;
+  }
+
+  #timeline > * {
+    flex: 0 0 auto;
+  }
+
+  #timeline-mask {
+    -webkit-mask-image: none !important;
+  }
+
+  .moyen, .moyen .date {
+    color: var(--box-bgcolor);
+  }
+
+  #timeline {
+    overflow-x: hidden; 
+  }
 }
+
 @font-face {
   font-family: 'Bree';
-  src: url('fonts/Bree.ttf');
+  src: url('../assets/fonts/Bree.ttf');
   font-weight: 100;
 }
 
 @font-face {
   font-family: 'CreamCake';
-  src: url('fonts/creamcake.otf');
+  src: url('../assets/fonts/creamcake.otf');
   font-weight: 100;
 }
 
 body {
-  background-color: var(--background);
+  background: var(--background);
   margin: 0px;
   font-family: "Bree";
 }
 
 * {
   box-sizing: border-box;
+  color: var(--font-color);
 }
 
 *:focus {
   outline: none;
 }
 
+
+
 /**************************************{ VARS }**************************************/
 
 :root {
-  --main-color: #efb5a3;
-  --main-bgcolor: #f57e7e;
-  --background: #315f72;
-  --menu-background: hsl(56, 53%, 81%, 0.9);
+  --accent: #784ae3;
+  --box-bgcolor: #212121;
+  --main-bgcolor: black;
+  --background: #3b216e;
+  --menu-background: #784ae3;
+  --font-color: white;
+}
+
+:root {
+  --accent: linear-gradient(#8359e5, #9e57e5);
+  --box-bgcolor: #212121;
+  --main-bgcolor: black;
+  --background: linear-gradient(#8359e5, #8359e5, #8359e5);
+  --font-color: white;
 }
 
 /**************************************{ BODY }**************************************/
 
 #timeline-wrapper {
   width: 100%;
-  height: 277px;
+  height: fit-content;
   text-align: center;
   vertical-align: middle;
   background-color: var(--main-bgcolor);
@@ -54,44 +100,50 @@ body {
 }
 
 #timeline {
-  display: inline-block;
+  padding: 10px 0 10px 0;
+  display: flex;
   margin: auto;
   width: 90%;
-  height: 200px;
+  height: 300px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 #timeline-mask {
   position: relative;
   width: 100%;
-  height: 277px;
+  height: fit-content;
+/*  
   -webkit-mask-image: linear-gradient(to right, transparent, var(--main-bgcolor), transparent);
+*/
   z-index: auto;
 }
 
 .grand, .moyen, .petit {
-  margin: 0px 5px 0px 5px;
+  margin: 0px;
   vertical-align: middle;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: var(--main-color);
+  background-color: var(--box-bgcolor);
   border-radius: 10px;
   display: inline-block;
 }
 
 .grand {
-  height: 119%;
+  height: 100%;
   width: 25%;
   min-width: 180px;
 }
 
 .moyen {
-  height: 103%;
+  height: 90%;
   width: 20%;
   min-width: 142px;
 }
 
 .petit {
-  height: 90%;
+  height: 80%;
   min-width: 120px;
   width: 15%;
 }
@@ -99,7 +151,7 @@ body {
 .date {
   margin: 0px;
   font-size: 12px;
-  color: #595959;
+  color: var(--accent);
 }
 
 .rel-date {
@@ -122,12 +174,22 @@ body {
 
 .humor {
   margin: 0px;
+  margin: auto;
+  width: fit-content;
+  padding: 2px 10px 2px 10px;
+  background: var(--accent);
+  border-radius: 15px;
+  color: white !important;
+  font-family: arial;
+  font-size: 0.8em;
 }
 
 .content {
-  padding: 0px 10px 5px 10px;
+  padding: 0px 15px 5px 15px;
   margin-top: 5px;
   text-overflow: clip;
+  margin-top: 10px;
+  color: #e3e3e3;
 }
 
 .moyen .content {
@@ -147,9 +209,9 @@ body {
 #boutondumenu {
   margin: 5px;
   font-family: 'CreamCake';
-  color: #080a0c;
+  color: var(--font-color);
   background: var(--main-bgcolor);
-  background-image: linear-gradient(180deg, var(--background) 100%, var(--background));
+  background-image: linear-gradient(180deg, var(--accent) 100%, var(--background));
   background-repeat: no-repeat;
   border: none;
   border-radius: 15px;
@@ -175,12 +237,14 @@ body {
 }
 
 h1 {
-  margin: 10px;
+  background: var(--accent);
+  color: white;
+  padding-bottom: 10px;
   margin-top: 0px;
   text-align: center;
-  color: #0f0f0f;
   font-family: "CreamCake";
   font-size: 80px;
+  margin-bottom: 0px;
 }
 
 .popup {

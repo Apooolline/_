@@ -51,7 +51,7 @@ class Timeline {
   display(day, dayObject) {
 
     if(dayObject === -1) {
-      document.querySelector(`#day--${day}`).style.background = "#f57e7e"
+      document.querySelector(`#day--${day}`).style.background = getComputedStyle(document.documentElement).getPropertyValue('--main-bgcolor');
       document.querySelector(`#reldate--${day}`).innerHTML = ''
       document.querySelector(`#humor--${day}`).innerHTML = ''
       document.querySelector(`#date--${day}`).innerHTML = ''
@@ -59,7 +59,7 @@ class Timeline {
       return
     }
 
-    document.querySelector(`#day--${day}`).style.background = "#efb5a3"
+    document.querySelector(`#day--${day}`).style.background = getComputedStyle(document.documentElement).getPropertyValue('--main-color');
 
     let today = getDateString(Date.now())
     let distance = Math.ceil((((getStringDate(today) - getStringDate(dayObject.day)) / 1000) / 3600) / 24)
@@ -93,6 +93,7 @@ class Timeline {
       let plural = distance > 1 ? 's' : ''
       document.querySelector(`#reldate--${day}`).innerHTML = `il y a ${distance} jour` + plural
       document.querySelector(`#humor--${day}`).innerHTML = this.humors.get(dayObject.humor).name
+      document.querySelector(`#humor--${day}`).style.color = this.humors.get(dayObject.humor).color
       
     }
     

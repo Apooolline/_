@@ -23,6 +23,7 @@ let timeline = new Timeline(testjourney, testhumors)
 var lastScrollTop = 0;
 
 document.querySelector('#timeline-wrapper').addEventListener("wheel", function(event) {
+  event.preventDefault()
 
   if(event.deltaY > 0) {
     timeline.cursorNext()
@@ -31,5 +32,5 @@ document.querySelector('#timeline-wrapper').addEventListener("wheel", function(e
 }, false);
 
 for (var humeur of Array.from( testhumors.map.values() )) {
-  document.querySelector('#humeurs').innerHTML += `<li>${humeur.name} (${humeur.level})</li>`
+  document.querySelector('#humeurs').innerHTML += `<li style="color: ${humeur.color}">${humeur.name} (${humeur.level})</li>`
 }
